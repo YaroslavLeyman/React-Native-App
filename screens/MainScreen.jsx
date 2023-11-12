@@ -1,10 +1,33 @@
-import {Text, View} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { ActivityIndicator, Text, View } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProducts } from '../redux/product/product.action';
+import Products from './Products/Products';
 
 function MainScreen() {
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getProducts())
+        console.log('products');
+    }, [])
+    const isLoading = useSelector(state => state.product.isLoading);
+    const products = useSelector(state => state.product.products);
+    const categories = useSelector(state => state.product.categories);
+
+
     return ( 
         <View>
-            <Text>MainScreen</Text>
+            <Text>Тут ещё фильтр добавить</Text>
 
+            {isLoading ? (
+                <ActivityIndicator size="small" color="#fff" />
+            ) : (
+                <Products products={products} />
+            )}
+
+            
         </View>
     );
 }

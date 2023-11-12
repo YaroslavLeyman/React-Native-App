@@ -3,6 +3,7 @@ import {ProductActionTypes} from './product.types';
 const INITIAL_STATE = {
   products: [],
   currentProduct: null,
+  categories: [],
   isLoading: false,
   error: null,
 };
@@ -27,7 +28,18 @@ const productReducer = (state = INITIAL_STATE, action) => {
         isLoading: false,
         error: action.payload,
       };
+    case ProductActionTypes.PRODUCT_CATEGORIES:
+      return {
+        ...state,
+        categories: action.payload,
+      }
+    case ProductActionTypes.PRODUCT_CURRENT:
+      return {
+        ...state,
+        currentProduct: action.payload,
+      }
     default:
+        return state;
   }
 };
 
