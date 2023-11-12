@@ -1,5 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { MainScreen, ProfileScreen } from '../screens';
+import { ProfileScreen } from '../screens';
+import ProductNavigator from './ProductNavigator';
 
 function MainNavigator() {
   const Tab = createBottomTabNavigator();
@@ -9,7 +10,7 @@ function MainNavigator() {
       screenOptions={{
         headerShown: false,
       }}>
-      <Tab.Screen name="Main" component={MainScreen} />
+      <Tab.Screen name="Home" component={ProductNavigator} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   );

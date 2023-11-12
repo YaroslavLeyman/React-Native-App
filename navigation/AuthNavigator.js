@@ -4,7 +4,6 @@ import {LoginScreen, RegisterScreen} from '../screens';
 const Stack = createStackNavigator();
 
 function AuthNavigator() {
-    console.log('ffffffff');
   return (
     <Stack.Navigator
       screenOptions={{
