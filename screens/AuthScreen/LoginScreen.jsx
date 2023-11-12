@@ -1,6 +1,16 @@
 import React, {useState} from 'react';
-import {Button, StyleSheet, Text, TextInput, View, TouchableWithoutFeedback, Keyboard, TouchableOpacity} from 'react-native';
-import {useDispatch} from 'react-redux';
+import {
+  ActivityIndicator,
+  Keyboard,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
+import ErrorMsg from '../../components/ErrorMsg';
 import {loginAsync} from '../../redux/user/user.action'; // Путь к вашему action
 
 function LoginScreen() {
@@ -13,9 +23,13 @@ function LoginScreen() {
   };
 
   // TouchableWithoutFeedback - это компонент, который не обрабатывает нажатия на экран
+  // использование не приведет к проблемам тк используется только на одном экране
   // Keyboard.dismiss - это функция, которая скрывает клавиатуру
   // accessible={false} - это свойство, которое делает компонент невидимым
-  
+
+  const errorMessage = useSelector(state => state.user.error);
+  const userLoading = useSelector(state => state.user.isLoading);
+  //   let errorMessage = true;
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
@@ -34,9 +48,31 @@ function LoginScreen() {
           onChangeText={setPassword}
           secureTextEntry
         />
-        <TouchableOpacity  style={styles.btn} onPress={handleLogin} >
-          <Text style={styles.btnText}>Войти</Text>
+
+        <TouchableOpacity
+          style={
+			password && username
+			? {...styles.btn, backgroundColor: '#ff6900'}
+			: {...styles.btn, backgroundColor: '#e1e1e1'}
+		}
+
+			disabled={password && username ? false : true}
+        	onPress={handleLogin}>
+          {!userLoading ? (
+            <Text
+              style={
+                password && username
+                  ? {...styles.btnText, color: '#fff'}
+                  : {...styles.btnText, color: '#000'}
+              }>
+              Войти
+            </Text>
+          ) : (
+            <ActivityIndicator size="small" color="#fff" />
+          )}
         </TouchableOpacity>
+
+        {errorMessage && <ErrorMsg message={errorMessage} />}
       </View>
     </TouchableWithoutFeedback>
   );
@@ -56,8 +92,8 @@ const styles = StyleSheet.create({
   input: {
     width: '100%',
     paddingBottom: 10,
-    paddingTop: 10,   
-    paddingLeft: 16,  
+    paddingTop: 10,
+    paddingLeft: 16,
     paddingRight: 16,
     borderWidth: 1,
     borderColor: 'gray',
@@ -66,20 +102,26 @@ const styles = StyleSheet.create({
   },
   btn: {
     width: '100%',
-    backgroundColor: '#ff6900',
     paddingBottom: 10,
-    paddingTop: 10,   
-    paddingLeft: 16,  
+    paddingTop: 10,
+    paddingLeft: 16,
     paddingRight: 16,
     borderRadius: 6,
     alignItems: 'center',
     justifyContent: 'center',
     margin: 10,
   },
+
+  btnOk: {
+    backgroundColor: '#ff6900',
+  },
+  btnError: {
+    backgroundColor: '#e1e1e1',
+  },
+
   btnText: {
-    color: '#fff',
     fontSize: 16,
-  }
+  },
 });
 
 export default LoginScreen;
