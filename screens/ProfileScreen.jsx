@@ -1,12 +1,12 @@
 import {Text, View} from 'react-native';
 
-function MainScreen() {
+function ProfileScreen() {
     return ( 
         <View>
-            <Text>MainScreen</Text>
+            <Text>ProfileScreen</Text>
 
         </View>
     );
 }
 
-export default MainScreen;
+export default ProfileScreen;
