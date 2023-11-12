@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import ErrorMsg from '../../components/ErrorMsg';
-import {loginAsync} from '../../redux/user/user.action'; // Путь к вашему action
+import {loginAsync} from '../../redux/user/user.action';
 
 function LoginScreen() {
   const [username, setUsername] = useState('');
@@ -51,13 +51,12 @@ function LoginScreen() {
 
         <TouchableOpacity
           style={
-			password && username
-			? {...styles.btn, backgroundColor: '#ff6900'}
-			: {...styles.btn, backgroundColor: '#e1e1e1'}
-		}
-
-			disabled={password && username ? false : true}
-        	onPress={handleLogin}>
+            password && username
+              ? {...styles.btn, backgroundColor: '#ff6900'}
+              : {...styles.btn, backgroundColor: '#e1e1e1'}
+          }
+          disabled={password && username ? false : true}
+          onPress={handleLogin}>
           {!userLoading ? (
             <Text
               style={
@@ -121,6 +120,7 @@ const styles = StyleSheet.create({
 
   btnText: {
     fontSize: 16,
+	fontWeight: 'bold',
   },
 });
 

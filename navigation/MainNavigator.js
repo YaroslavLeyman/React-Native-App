@@ -1,17 +1,17 @@
-import {createStackNavigator} from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MainScreen, ProfileScreen } from '../screens';
 
 function MainNavigator() {
-  const Stack = createStackNavigator();
+  const Tab = createBottomTabNavigator();
 
   return (
-    <Stack.Navigator
+    <Tab.Navigator
       screenOptions={{
         headerShown: false,
       }}>
-      <Stack.Screen name="Main" component={MainScreen} />
-      <Stack.Screen name="Profile" component={ProfileScreen} />
-    </Stack.Navigator>
+      <Tab.Screen name="Main" component={MainScreen} />
+      <Tab.Screen name="Profile" component={ProfileScreen} />
+    </Tab.Navigator>
   );
 }
 

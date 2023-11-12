@@ -1,4 +1,3 @@
-// user.actions.js
 import { UserService } from '../../services';
 import { UserActionTypes } from './user.types';
 
