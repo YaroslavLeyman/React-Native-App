@@ -9,7 +9,7 @@ function ProductScreen({navigation}) {
 
   useEffect(() => {
     dispatch(getProducts());
-    console.log('products');
+    // console.log('products');
   }, []);
   const isLoading = useSelector(state => state.product.isLoading);
   const products = useSelector(state => state.product.products);
@@ -20,7 +20,9 @@ function ProductScreen({navigation}) {
       <Text>Тут ещё фильтр добавить</Text>
 
       {isLoading ? (
-        <ActivityIndicator size="small" color="#fff" />
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+          <ActivityIndicator size="large" color="#ff6900" />
+        </View>
       ) : (
         <Products products={products} navigation={navigation} />
       )}

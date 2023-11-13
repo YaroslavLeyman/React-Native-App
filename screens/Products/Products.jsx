@@ -1,13 +1,17 @@
 import React, { useCallback } from 'react'
 import { FlatList, Text, View } from 'react-native'
 import ProductItem from './ProductItem';
+import { useSelector } from 'react-redux';
 
 function Products({navigation, products}) {
+
+    const cartItems = useSelector(state => state.cart.cart);
 
     const renderItem = useCallback(({ item, index }) => (
         <ProductItem
             navigation={navigation}
             item={item}
+            cartItems={cartItems}
             index={index}
         />
     ));
@@ -18,10 +22,10 @@ function Products({navigation, products}) {
   return (
     <View style={{ gap: 10}}>
         <FlatList 
-            data={products} // Данные
-            renderItem={renderItem} // Компонент
-            keyExtractor={keyExtractor} // Ключ
-            numColumns={2} // Количество столбцов
+            data={products}
+            renderItem={renderItem}
+            keyExtractor={keyExtractor}
+            numColumns={2}
             contentContainerStyle={{ paddingBottom: 50 }}
         />
     </View>

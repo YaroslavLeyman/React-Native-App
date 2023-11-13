@@ -36,7 +36,6 @@ const ProfileScreen = () => {
 			</Text>
 		</View>
 
-
 		<TouchableOpacity style={styles.btn} onPress={handleLogout}>
 			<Text style={styles.btnText}>Выйти</Text>
 		</TouchableOpacity>

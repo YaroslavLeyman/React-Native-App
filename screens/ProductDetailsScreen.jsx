@@ -12,6 +12,7 @@ import {
   View,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import AddCartBtn from '../components/AddCartBtn';
 const windowWidth = Dimensions.get('window').width;
 function ProductDetailsScreen({route}) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -69,15 +70,8 @@ function ProductDetailsScreen({route}) {
 				</Text>		
 			</View>
           
-          <TouchableOpacity>
-            <View style={styles.addCartBtn}>
-              <Text style={{color: 'white', fontWeight: 'bold'}}>
-                {' '}
-                Добавить в корзину{' '}
-                <Icon name="shopping-cart" color="white" size={18} />
-              </Text>
-            </View>
-          </TouchableOpacity>
+
+		  <AddCartBtn item={product} buttonText={'Добавить в корзину'} />
         </View>
 		<View style={styles.block}>
 			<Text>{product.description}</Text>
