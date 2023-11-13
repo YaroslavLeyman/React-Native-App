@@ -13,10 +13,26 @@ export const getProducts = () => {
         type: ProductActionTypes.PRODUCT_LIST,
         payload: response.products,
       });
+
+
     } else {
       dispatch({
         type: ProductActionTypes.PRODUCT_LIST_FAILURE,
         payload: response.message,
+      });
+    }
+
+    const categories = await ProductService.getCategories();
+    console.log(categories);
+    if (categories.success) {
+      dispatch({
+        type: ProductActionTypes.PRODUCT_CATEGORIES,
+        payload: categories.categories,
+      });
+    } else {
+      dispatch({
+        type: ProductActionTypes.PRODUCT_LIST_FAILURE,
+        payload: categories.message,
       });
     }
   };
