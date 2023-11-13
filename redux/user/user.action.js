@@ -42,6 +42,6 @@ export const loginAsync = (username, password) => {
 		dispatch(loginFailure(response.message));
 		
 	}
-	console.log('loginAsync response', response);
+	// console.log('loginAsync response', response);
   };
 };

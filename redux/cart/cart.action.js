@@ -5,10 +5,21 @@ export const addItem = (item) => ({
   payload: item,
 });
 
-export const changeItemQuantity = (id, quantity) => ({
+
+export const decraseItemQuantity = (id) => ({
   type: CartActionTypes.CHANGE_ITEM_QUANTITY,
-  payload: { id, quantity },
-});
+  payload: { id, quantity: -1 },
+})
+
+export const increaseItemQuantity = (id) => ({
+  type: CartActionTypes.CHANGE_ITEM_QUANTITY,
+  payload: { id, quantity: 1 },
+})
+
+// export const changeItemQuantity = (id, quantity) => ({
+//   type: CartActionTypes.CHANGE_ITEM_QUANTITY,
+//   payload: { id, quantity },
+// });
 
 export const removeItem = (id) => ({
   type: CartActionTypes.CART_REMOVE_ITEM,
