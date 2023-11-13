@@ -23,7 +23,6 @@ export const getProducts = () => {
     }
 
     const categories = await ProductService.getCategories();
-    console.log(categories);
     if (categories.success) {
       dispatch({
         type: ProductActionTypes.PRODUCT_CATEGORIES,

@@ -29,7 +29,6 @@ function LoginScreen() {
 
   const errorMessage = useSelector(state => state.user.error);
   const userLoading = useSelector(state => state.user.isLoading);
-  //   let errorMessage = true;
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>

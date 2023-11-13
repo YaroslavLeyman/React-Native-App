@@ -1,4 +1,23 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Мобильное приложение на React-Native CLI
+
+### Функциональность
+
+- Авторизация, выход из профиля, просмотр профиля
+- Список товаров с изображением, названием, ценой, выбором количества и фильтрацией по категориям
+- Корзина товаров
+- Подробная страница товара
+- Страница оформления заказа
+- Поиск
+
+### Технологии
+
+- React-Native CLI
+- Redux
+- JavaScript
+- Axios
+
+
+
 
 # Getting Started
 
