@@ -1,4 +1,4 @@
-# Мобильное приложение на React-Native CLI
+# Мобильное приложение на React-Native
 
 ### Функциональность
 
@@ -11,7 +11,7 @@
 
 ### Технологии
 
-- React-Native CLI
+- React-Native
 - Redux
 - JavaScript
 - Axios
