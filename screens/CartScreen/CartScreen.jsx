@@ -13,6 +13,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {
   clearCart,
   increaseItemQuantity,
+  decreaseItemQuantity,
   removeItem,
 } from '../../redux/cart/cart.action';
 
@@ -48,7 +49,7 @@ function CartScreen() {
   const handleCheckout = () => {
     navigator.navigate('CartCheckout', {totalAmount, totalCount});
   };
-//
+
   const renderItem = ({item}) => (
     <View style={styles.itemContainer}>
       <Image source={{uri: item.thumbnail}} style={styles.image} />
@@ -133,8 +134,6 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     backgroundColor: 'white',
     marginBottom: 10,
-    //   borderBottomWidth: 1,
-    //   borderBottomColor: '#ddd',
   },
   image: {
     width: 50,

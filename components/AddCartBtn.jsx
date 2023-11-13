@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {useDispatch, useSelector} from 'react-redux';
 import {
   addItem,
-  decraseItemQuantity,
+  decreaseItemQuantity,
   increaseItemQuantity,
 } from '../redux/cart/cart.action';
 
@@ -21,13 +21,12 @@ function AddCartBtn({item, buttonText }) {
     return cartItems.find(cartItem => cartItem.id === item.id);
   }, [cartItems, item.id]);
 
-  // изменяем количество товара в корзине
   const increaseQuantity = () => {
     dispatch(increaseItemQuantity(item.id));
   };
 
   const decreaseQuantity = () => {
-    dispatch(decraseItemQuantity(item.id));
+    dispatch(decreaseItemQuantity(item.id));
   };
 
   return (
@@ -60,7 +59,7 @@ function AddCartBtn({item, buttonText }) {
           <TextInput
             placeholder={isInCart.quantity ? isInCart.quantity.toString() : '1'}
             value={isInCart.quantity ? isInCart.quantity.toString() : '1'}
-            editable={false} // Запрещаем редактирование
+            editable={false}
             style={styles.input}
             keyboardType="numeric"
           />

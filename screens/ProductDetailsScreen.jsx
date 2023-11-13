@@ -24,7 +24,6 @@ function ProductDetailsScreen({route}) {
   };
 
   const {product} = route.params;
-  //   const images = product.images;
 
   const renderItem = useCallback(
     ({item, index}) => (
@@ -44,7 +43,7 @@ function ProductDetailsScreen({route}) {
         data={product.images}
         renderItem={renderItem}
         keyExtractor={keyExtractor}
-        showsHorizontalScrollIndicator={false} // Скрываем скролл
+        showsHorizontalScrollIndicator={false}
         pagingEnabled={true}
       />
       <View style={styles.container}>
@@ -79,7 +78,6 @@ function ProductDetailsScreen({route}) {
 		</View>
       </View>
 
-      {/* // нужно вынести в компонент */}
       <Modal
         animationType="fade "
         transparent={true}

@@ -6,7 +6,7 @@ import Products from './Products/Products';
 
 function ProductScreen({navigation}) {
   const dispatch = useDispatch();
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState('Все');
 
   useEffect(() => {
     dispatch(getProducts());
@@ -14,7 +14,7 @@ function ProductScreen({navigation}) {
   }, []);
   const isLoading = useSelector(state => state.product.isLoading);
   const products = useSelector(state => state.product.products);
-  const categories = ['All', ...useSelector(state => state.product.categories)];
+  const categories = ['Все', ...useSelector(state => state.product.categories)];
 
   const renderCategoryItem = ({item}) => (
     <TouchableOpacity
@@ -23,12 +23,12 @@ function ProductScreen({navigation}) {
         item === selectedCategory ? styles.categoryItemSelected : null,
       ]}
       onPress={() => setSelectedCategory(item)}>
-      <Text style={styles.categoryText}>{item}</Text>
+      <Text style={item === selectedCategory ? {color: '#fff'} : { color: '#000' }}>{item}</Text>
     </TouchableOpacity>
   );
 
   const filteredProducts =
-    selectedCategory === 'All'
+    selectedCategory === 'Все'
       ? products
       : products.filter(product => product.category === selectedCategory);
 
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
       flex: 1,
     },
     categoriesList: {
-      flexGrow: 0,
+      flexGrow: 0, 
     },
     categoryItem: {
       padding: 10,

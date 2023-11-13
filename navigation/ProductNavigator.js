@@ -1,6 +1,5 @@
 import {createStackNavigator} from '@react-navigation/stack';
-import {Text, View} from 'react-native';
-import {CartCheckoutScreen, CartScreen, ProductDetailsScreen, ProductScreen} from '../screens';
+import {CartCheckoutScreen, CartScreen, ProductDetailsScreen, ProductScreen, SearchScreen} from '../screens';
 import HeaderCart from '../components/HeaderCart';
 
 const Stack = createStackNavigator();
@@ -15,6 +14,7 @@ function ProductNavigator() {
         ),
       }}>
       <Stack.Screen name="Product" component={ProductScreen} />
+      <Stack.Screen name="Search" component={SearchScreen} />
       <Stack.Screen name="ProductDetails" component={ProductDetailsScreen} />
       <Stack.Screen name="Cart" component={CartScreen} />
       <Stack.Screen name="CartCheckout" component={CartCheckoutScreen} />
